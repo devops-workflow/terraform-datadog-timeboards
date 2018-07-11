@@ -1,7 +1,4 @@
-
 # Look at existing integration dashboard
-
-
 /* Metrics
 jvm.gc.collectors.old.collection_time
 jvm.gc.collectors.old.count
@@ -16,3 +13,4 @@ jvm.mem.non_heap_used
 jvm.threads.count
 jvm.threads.peak_count
 */
+

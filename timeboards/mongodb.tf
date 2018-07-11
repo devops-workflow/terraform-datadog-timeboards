@@ -1,7 +1,4 @@
-
 # Look at existing integration dashboard
-
-
 /* Metrics
 mongodb.asserts.msgps
 mongodb.asserts.regularps
@@ -158,3 +155,4 @@ mongodb.wiredtiger.concurrenttransactions.write.available
 mongodb.wiredtiger.concurrenttransactions.write.out
 mongodb.wiredtiger.concurrenttransactions.write.totaltickets
 */
+

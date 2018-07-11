@@ -1,6 +1,4 @@
-
 # Look at existing integration dashboard
-
 /* Metrics
 aws.autoscaling.group_desired_capacity
 aws.autoscaling.group_in_service_instances
@@ -11,3 +9,4 @@ aws.autoscaling.group_standby_instances
 aws.autoscaling.group_terminating_instances
 aws.autoscaling.group_total_instances
 */
+

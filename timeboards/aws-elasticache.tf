@@ -1,7 +1,4 @@
-
 # Look at existing integration dashboard
-
-
 /* Metrics
 aws.elasticache.bytes_read_into_memcached
 aws.elasticache.bytes_used_for_cache
@@ -60,3 +57,4 @@ aws.elasticache.touch_hits
 aws.elasticache.touch_misses
 aws.elasticache.unused_memory
 */
+

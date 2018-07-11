@@ -1,7 +1,4 @@
-
 # Look at existing integration dashboard
-
-
 /* Metrics
 aws.redshift.cpuutilization
 aws.redshift.database_connections
@@ -17,3 +14,4 @@ aws.redshift.write_iops
 aws.redshift.write_latency
 aws.redshift.write_throughput
 */
+

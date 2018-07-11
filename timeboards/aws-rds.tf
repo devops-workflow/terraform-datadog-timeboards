@@ -1,4 +1,3 @@
-
 /* Metrics
 aws.rds.active_transactions
 aws.rds.aurora_binlog_replica_lag
@@ -57,3 +56,4 @@ aws.rds.write_iops
 aws.rds.write_latency
 aws.rds.write_throughput
 /**/
+

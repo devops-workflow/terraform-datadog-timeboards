@@ -1,7 +1,4 @@
-
 # Look at existing integration dashboard
-
-
 /* Metrics
 aws.ec2.cpuutilization
 aws.ec2.cpuutilization.maximum
@@ -20,3 +17,4 @@ aws.ec2.status_check_failed
 aws.ec2.status_check_failed_instance
 aws.ec2.status_check_failed_system
 */
+

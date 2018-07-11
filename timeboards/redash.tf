@@ -1,4 +1,3 @@
-
 /* Metrics
 redash.celery.task_runtime.cleanup_query_results.95percentile
 redash.celery.task_runtime.cleanup_query_results.avg
@@ -63,3 +62,4 @@ redash.requests.redash.ping.get.count
 redash.requests.redash.ping.get.max
 redash.requests.redash.ping.get.median
 */
+

@@ -1,4 +1,3 @@
-
 # https://www.terraform.io/docs/providers/datadog/r/timeboard.html
 
 # Look at existing integration dashboard
@@ -98,16 +97,17 @@ resource "datadog_timeboard" "default_instance_timeboard" {
   read_only   = false
 
   graph {
-    title       = "UPTIME"
-    viz         = "query_value"
-    autoscale   = true
-    precision   = "2"
+    title     = "UPTIME"
+    viz       = "query_value"
+    autoscale = true
+    precision = "2"
 
     request {
-      q                   = "avg:system.uptime{$env,$server_type,$host} by {host}"
-      aggregator          = "avg"
-      type                = "null"
-      conditional_format  = []
+      q                  = "avg:system.uptime{$env,$server_type,$host} by {host}"
+      aggregator         = "avg"
+      type               = "null"
+      conditional_format = []
+
       style {
         width   = "normal"
         palette = "dog_classic"
@@ -117,13 +117,14 @@ resource "datadog_timeboard" "default_instance_timeboard" {
   }
 
   graph {
-    title       = "Load Averages 1-5-15"
-    viz         = "timeseries"
-    autoscale   = true
+    title     = "Load Averages 1-5-15"
+    viz       = "timeseries"
+    autoscale = true
 
     request {
-      q                   = "avg:system.load.1{$env,$server_type,$host} by {host}"
-      type                = "line"
+      q    = "avg:system.load.1{$env,$server_type,$host} by {host}"
+      type = "line"
+
       style {
         width   = "normal"
         palette = "dog_classic"
@@ -132,8 +133,9 @@ resource "datadog_timeboard" "default_instance_timeboard" {
     }
 
     request {
-      q                   = "avg:system.load.5{$env,$server_type,$host} by {host}"
-      type                = "line"
+      q    = "avg:system.load.5{$env,$server_type,$host} by {host}"
+      type = "line"
+
       style {
         width   = "normal"
         palette = "dog_classic"
@@ -142,26 +144,9 @@ resource "datadog_timeboard" "default_instance_timeboard" {
     }
 
     request {
-      q                   = "avg:system.load.15{$env,$server_type,$host} by {host}"
-      type                = "line"
-      style {
-        width   = "normal"
-        palette = "dog_classic"
-        type    = "solid"
-      }
-    }
-  }
+      q    = "avg:system.load.15{$env,$server_type,$host} by {host}"
+      type = "line"
 
-  graph {
-    title       = "CPU usage (%)"
-    viz         = "timeseries"
-    autoscale   = true
-
-    request {
-      q                   = "max:system.cpu.idle{$env,$server_type,$host} by {host}, max:system.cpu.user{$env,$server_type,$host} by {host}, max:system.cpu.system{$env,$server_type,$host} by {host}, max:system.cpu.iowait{$env,$server_type,$host} by {host}, max:system.cpu.stolen{$env,$server_type,$host} by {host}, max:system.cpu.guest{$env,$server_type,$host} by {host}"
-      aggregator          = "avg"
-      type                = "area"
-      conditional_format  = []
       style {
         width   = "normal"
         palette = "dog_classic"
@@ -171,41 +156,16 @@ resource "datadog_timeboard" "default_instance_timeboard" {
   }
 
   graph {
-    title       = "Process usage CPU (%)"
-    viz         = "toplist"
-    autoscale   = true
+    title     = "CPU usage (%)"
+    viz       = "timeseries"
+    autoscale = true
 
     request {
-      q                   = "top(avg:system.processes.cpu.pct{$env,$server_type,$host} by {process_name}, 5, 'mean', 'desc')"
-      conditional_format  = []
-      style {
-        palette = "dog_classic"
-      }
-    }
-  }
+      q                  = "max:system.cpu.idle{$env,$server_type,$host} by {host}, max:system.cpu.user{$env,$server_type,$host} by {host}, max:system.cpu.system{$env,$server_type,$host} by {host}, max:system.cpu.iowait{$env,$server_type,$host} by {host}, max:system.cpu.stolen{$env,$server_type,$host} by {host}, max:system.cpu.guest{$env,$server_type,$host} by {host}"
+      aggregator         = "avg"
+      type               = "area"
+      conditional_format = []
 
-  graph {
-    title       = "Memory breakdown"
-    viz         = "timeseries"
-    autoscale   = true
-
-    request {
-      q                   = "avg:system.mem.total{$env,$server_type,$host} by {host}"
-      aggregator          = "avg"
-      type                = "area"
-      conditional_format  = []
-      style {
-        width   = "normal"
-        palette = "dog_classic"
-        type    = "solid"
-      }
-    }
-
-    request {
-      q                   = "avg:system.mem.used{$env,$server_type,$host} by {host}"
-      aggregator          = "avg"
-      type                = "area"
-      conditional_format  = []
       style {
         width   = "normal"
         palette = "dog_classic"
@@ -215,13 +175,14 @@ resource "datadog_timeboard" "default_instance_timeboard" {
   }
 
   graph {
-    title       = "Process usage Memory (%)"
-    viz         = "toplist"
-    autoscale   = true
+    title     = "Process usage CPU (%)"
+    viz       = "toplist"
+    autoscale = true
 
     request {
-      q                   = "top(avg:system.processes.mem.pct{$env,$server_type,$host} by {process_name}, 5, 'mean', 'desc')"
-      conditional_format  = []
+      q                  = "top(avg:system.processes.cpu.pct{$env,$server_type,$host} by {process_name}, 5, 'mean', 'desc')"
+      conditional_format = []
+
       style {
         palette = "dog_classic"
       }
@@ -229,15 +190,16 @@ resource "datadog_timeboard" "default_instance_timeboard" {
   }
 
   graph {
-    title       = "Disk usage by device"
-    viz         = "timeseries"
-    autoscale   = true
+    title     = "Memory breakdown"
+    viz       = "timeseries"
+    autoscale = true
 
     request {
-      q                   = "avg:system.disk.total{$env,$server_type,$host,$device} by {host,device}"
-      aggregator          = "avg"
-      type                = "area"
-      conditional_format  = []
+      q                  = "avg:system.mem.total{$env,$server_type,$host} by {host}"
+      aggregator         = "avg"
+      type               = "area"
+      conditional_format = []
+
       style {
         width   = "normal"
         palette = "dog_classic"
@@ -246,27 +208,11 @@ resource "datadog_timeboard" "default_instance_timeboard" {
     }
 
     request {
-      q                   = "avg:system.disk.used{$env,$server_type,$host,$device} by {host,device}"
-      type                = "area"
-      conditional_format  = []
-      style {
-        width   = "normal"
-        palette = "dog_classic"
-        type    = "solid"
-      }
-    }
-  }
+      q                  = "avg:system.mem.used{$env,$server_type,$host} by {host}"
+      aggregator         = "avg"
+      type               = "area"
+      conditional_format = []
 
-  graph {
-    title       = "Disk usage by device (%)"
-    viz         = "timeseries"
-    autoscale   = true
-
-    request {
-      q                   = "max:system.disk.in_use{$env,$server_type,$host,$device} by {host,device}*100"
-      aggregator          = "avg"
-      type                = "line"
-      conditional_format  = []
       style {
         width   = "normal"
         palette = "dog_classic"
@@ -276,15 +222,31 @@ resource "datadog_timeboard" "default_instance_timeboard" {
   }
 
   graph {
-    title       = "Disk IO (bytes per sec)"
-    viz         = "timeseries"
-    autoscale   = true
+    title     = "Process usage Memory (%)"
+    viz       = "toplist"
+    autoscale = true
 
     request {
-      q                   = "avg:gcp.gce.instance.disk.read_bytes_count{$env,$server_type,$host,$device} by {host}.as_count()"
-      aggregator          = "avg"
-      type                = "line"
-      conditional_format  = []
+      q                  = "top(avg:system.processes.mem.pct{$env,$server_type,$host} by {process_name}, 5, 'mean', 'desc')"
+      conditional_format = []
+
+      style {
+        palette = "dog_classic"
+      }
+    }
+  }
+
+  graph {
+    title     = "Disk usage by device"
+    viz       = "timeseries"
+    autoscale = true
+
+    request {
+      q                  = "avg:system.disk.total{$env,$server_type,$host,$device} by {host,device}"
+      aggregator         = "avg"
+      type               = "area"
+      conditional_format = []
+
       style {
         width   = "normal"
         palette = "dog_classic"
@@ -293,9 +255,10 @@ resource "datadog_timeboard" "default_instance_timeboard" {
     }
 
     request {
-      q                   = "avg:gcp.gce.instance.disk.write_bytes_count{$env,$server_type,$host,$device} by {host}.as_count()"
-      type                = "line"
-      conditional_format  = []
+      q                  = "avg:system.disk.used{$env,$server_type,$host,$device} by {host,device}"
+      type               = "area"
+      conditional_format = []
+
       style {
         width   = "normal"
         palette = "dog_classic"
@@ -305,14 +268,35 @@ resource "datadog_timeboard" "default_instance_timeboard" {
   }
 
   graph {
-    title       = "Network traffic (bytes per sec)"
-    viz         = "timeseries"
-    autoscale   = true
+    title     = "Disk usage by device (%)"
+    viz       = "timeseries"
+    autoscale = true
 
     request {
-      q                   = "avg:system.net.bytes_sent{$env,$server_type,$host} by {host}"
-      type                = "line"
-      conditional_format  = []
+      q                  = "max:system.disk.in_use{$env,$server_type,$host,$device} by {host,device}*100"
+      aggregator         = "avg"
+      type               = "line"
+      conditional_format = []
+
+      style {
+        width   = "normal"
+        palette = "dog_classic"
+        type    = "solid"
+      }
+    }
+  }
+
+  graph {
+    title     = "Disk IO (bytes per sec)"
+    viz       = "timeseries"
+    autoscale = true
+
+    request {
+      q                  = "avg:gcp.gce.instance.disk.read_bytes_count{$env,$server_type,$host,$device} by {host}.as_count()"
+      aggregator         = "avg"
+      type               = "line"
+      conditional_format = []
+
       style {
         width   = "normal"
         palette = "dog_classic"
@@ -321,9 +305,40 @@ resource "datadog_timeboard" "default_instance_timeboard" {
     }
 
     request {
-      q                   = "avg:system.net.bytes_rcvd{$env,$server_type,$host} by {host}"
-      type                = "line"
-      conditional_format  = []
+      q                  = "avg:gcp.gce.instance.disk.write_bytes_count{$env,$server_type,$host,$device} by {host}.as_count()"
+      type               = "line"
+      conditional_format = []
+
+      style {
+        width   = "normal"
+        palette = "dog_classic"
+        type    = "solid"
+      }
+    }
+  }
+
+  graph {
+    title     = "Network traffic (bytes per sec)"
+    viz       = "timeseries"
+    autoscale = true
+
+    request {
+      q                  = "avg:system.net.bytes_sent{$env,$server_type,$host} by {host}"
+      type               = "line"
+      conditional_format = []
+
+      style {
+        width   = "normal"
+        palette = "dog_classic"
+        type    = "solid"
+      }
+    }
+
+    request {
+      q                  = "avg:system.net.bytes_rcvd{$env,$server_type,$host} by {host}"
+      type               = "line"
+      conditional_format = []
+
       style {
         width   = "normal"
         palette = "dog_classic"

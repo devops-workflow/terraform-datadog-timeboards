@@ -1,7 +1,4 @@
-
 # Look at existing integration dashboard
-
-
 /* Metrics
 aws.networkelb.active_flow_count
 aws.networkelb.active_flow_count.maximum
@@ -19,3 +16,4 @@ aws.networkelb.un_healthy_host_count
 aws.networkelb.un_healthy_host_count.maximum
 aws.networkelb.un_healthy_host_count.minimum
 */
+

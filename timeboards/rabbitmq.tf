@@ -1,7 +1,4 @@
-
 # Look at existing integration dashboard
-
-
 /* Metrics
 rabbitmq.queue.bindings.count
 rabbitmq.queue.consumer_utilisation
@@ -24,3 +21,4 @@ rabbitmq.queue.messages.rate
 rabbitmq.queue.messages.redeliver.count
 rabbitmq.queue.messages.redeliver.rate
 */
+

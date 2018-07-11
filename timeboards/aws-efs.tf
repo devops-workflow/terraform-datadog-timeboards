@@ -1,4 +1,3 @@
-
 /* Metrics
 aws.efs.burst_credit_balance
 aws.efs.burst_credit_balance.maximum
@@ -25,3 +24,4 @@ aws.efs.total_iobytes.average
 aws.efs.total_iobytes.maximum
 aws.efs.total_iobytes.minimum
 */
+

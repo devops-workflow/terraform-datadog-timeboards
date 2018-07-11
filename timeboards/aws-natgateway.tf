@@ -1,4 +1,3 @@
-
 /* Metrics
 aws.natgateway.active_connection_count
 aws.natgateway.bytes_in_from_destination
@@ -15,3 +14,4 @@ aws.natgateway.packets_in_from_source
 aws.natgateway.packets_out_to_destination
 aws.natgateway.packets_out_to_source
 */
+

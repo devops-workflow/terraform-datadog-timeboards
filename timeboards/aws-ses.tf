@@ -1,4 +1,3 @@
-
 /* Metrics
 aws.ses.bounces
 aws.ses.complaints
@@ -13,3 +12,4 @@ aws.ses.send
 aws.ses.send.sum
 aws.ses.sent_last_24_hours
 */
+

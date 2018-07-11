@@ -1,7 +1,4 @@
-
 # Look at existing integration dashboard
-
-
 /* Metrics
 elasticsearch.active_primary_shards
 elasticsearch.active_shards
@@ -189,3 +186,4 @@ elasticsearch.transport.tx_count
 elasticsearch.transport.tx_size
 elasticsearch.unassigned_shards
 */
+
