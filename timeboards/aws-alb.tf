@@ -1,0 +1,30 @@
+
+# Look at existing integration dashboard
+
+/* Metrics
+aws.applicationelb.active_connection_count
+aws.applicationelb.client_tlsnegotiation_error_count
+aws.applicationelb.consumed_lcus
+aws.applicationelb.healthy_host_count
+aws.applicationelb.healthy_host_count_deduped
+aws.applicationelb.healthy_host_count.maximum
+aws.applicationelb.healthy_host_count.minimum
+aws.applicationelb.httpcode_elb_4xx
+aws.applicationelb.httpcode_elb_5xx
+aws.applicationelb.httpcode_target_2xx
+aws.applicationelb.httpcode_target_3xx
+aws.applicationelb.httpcode_target_4xx
+aws.applicationelb.httpcode_target_5xx
+aws.applicationelb.new_connection_count
+aws.applicationelb.processed_bytes
+aws.applicationelb.request_count
+aws.applicationelb.request_count_per_target
+aws.applicationelb.target_response_time.average
+aws.applicationelb.target_response_time.maximum
+aws.applicationelb.target_response_time.p95
+aws.applicationelb.target_response_time.p99
+aws.applicationelb.un_healthy_host_count
+aws.applicationelb.un_healthy_host_count_deduped
+aws.applicationelb.un_healthy_host_count.maximum
+aws.applicationelb.un_healthy_host_count.minimum
+*/
